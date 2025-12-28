@@ -72,12 +72,15 @@ h1 {
   background: #e68900;
 }
 
-.selected {
-  margin-top: 25px;
-  padding: 15px;
-  background: #e8f5e9;
-  border-left: 5px solid #4caf50;
+/* Action box */
+.action-box {
   display: none;
+  margin-top: 12px;
+  padding: 12px;
+  background: #e8f5e9;
+  border-left: 4px solid #4caf50;
+  border-radius: 6px;
+  font-size: 14px;
 }
 
 .buttons {
@@ -104,66 +107,95 @@ a.btn {
 <body>
 
 <div class="container">
-  <h1>🚕 Gujarat Taxi Finder</h1>
+  <h1>🚕 Omkar Travels 🚕 </h1>
 
   <div class="vehicle-grid">
 
+    <!-- TAVERA -->
     <div class="vehicle-card">
-        <img src="Image_tavera.avif" alt="Chevrolet Tavera">
-        <div class="info">
-          <h3>Chevrolet Tavera</h3>
-          <p>Tour | Comfortable 7–9 Seater</p>
-          <button onclick="selectVehicle('Chevrolet Tavera')">
-            Select Vehicle
-          </button>
+      <img src="Image_tavera.avif" alt="Chevrolet Tavera">
+      <div class="info">
+        <h3>Chevrolet Tavera</h3>
+        <p>Tour | Comfortable</p>
+        <button onclick="selectVehicle(this)">Select Vehicle</button>
+
+        <div class="action-box">
+          <strong>Selected: Chevrolet Tavera</strong>
+          <div class="buttons">
+            <a href="tel:7623023109" class="btn call">📞 Call</a>
+            <a href="https://wa.me/917623023109" class="btn whatsapp">💬 WhatsApp</a>
+          </div>
         </div>
       </div>
-      
+    </div>
 
+    <!-- EECO -->
     <div class="vehicle-card">
       <img src="Image_Eeco.avif" alt="Maruti Eeco">
       <div class="info">
         <h3>Maruti Eeco</h3>
-        <p>Budget | 5–7 Seater</p>
-        <button onclick="selectVehicle('Maruti Eeco')">Select Vehicle</button>
+        <p>Budget Friendly</p>
+        <button onclick="selectVehicle(this)">Select Vehicle</button>
+
+        <div class="action-box">
+          <strong>Selected: Maruti Eeco</strong>
+          <div class="buttons">
+            <a href="tel:7623023109" class="btn call">📞 Call</a>
+            <a href="https://wa.me/917623023109" class="btn whatsapp">💬 WhatsApp</a>
+          </div>
+        </div>
       </div>
     </div>
 
+    <!-- ERTIGA -->
     <div class="vehicle-card">
       <img src="Image_Ertiga.avif" alt="Maruti Ertiga">
       <div class="info">
         <h3>Maruti Ertiga</h3>
         <p>Comfort | Family Travel</p>
-        <button onclick="selectVehicle('Maruti Ertiga')">Select Vehicle</button>
+        <button onclick="selectVehicle(this)">Select Vehicle</button>
+
+        <div class="action-box">
+          <strong>Selected: Maruti Ertiga</strong>
+          <div class="buttons">
+            <a href="tel:7623023109" class="btn call">📞 Call</a>
+            <a href="https://wa.me/917623023109" class="btn whatsapp">💬 WhatsApp</a>
+          </div>
+        </div>
       </div>
     </div>
 
+    <!-- TOOFAN -->
     <div class="vehicle-card">
       <img src="Image_Toofan.webp" alt="Force Toofan">
       <div class="info">
         <h3>Force Toofan</h3>
         <p>Large Group | Tourist</p>
-        <button onclick="selectVehicle('Force Toofan')">Select Vehicle</button>
+        <button onclick="selectVehicle(this)">Select Vehicle</button>
+
+        <div class="action-box">
+          <strong>Selected: Force Toofan</strong>
+          <div class="buttons">
+            <a href="tel:7623023109" class="btn call">📞 Call</a>
+            <a href="https://wa.me/917623023109" class="btn whatsapp">💬 WhatsApp</a>
+          </div>
+        </div>
       </div>
     </div>
 
   </div>
-
-  <div class="selected" id="selectedBox">
-    <strong>Selected Vehicle:</strong> <span id="vehicleName"></span>
-
-    <div class="buttons">
-      <a href="tel:7623023109" class="btn call">📞 Call</a>
-      <a href="https://wa.me/917623023109" class="btn whatsapp">💬 WhatsApp</a>
-    </div>
-  </div>
-
 </div>
 
 <script>
-function selectVehicle(name) {
-  document.getElementById("vehicleName").innerText = name;
-  document.getElementById("selectedBox").style.display = "block";
+function selectVehicle(button) {
+  // Hide all action boxes
+  document.querySelectorAll('.action-box').forEach(box => {
+    box.style.display = 'none';
+  });
+
+  // Show the one related to clicked taxi
+  const actionBox = button.nextElementSibling;
+  actionBox.style.display = 'block';
 }
 </script>
 
