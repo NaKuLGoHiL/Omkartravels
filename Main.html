@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gujarat Taxi Finder</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.vehicle-card {
+  background: #fafafa;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.vehicle-card:hover {
+  transform: scale(1.03);
+}
+
+.vehicle-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.vehicle-card .info {
+  padding: 15px;
+}
+
+.vehicle-card h3 {
+  margin: 0 0 8px 0;
+}
+
+.vehicle-card button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #ff9800;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.vehicle-card button:hover {
+  background: #e68900;
+}
+
+.selected {
+  margin-top: 25px;
+  padding: 15px;
+  background: #e8f5e9;
+  border-left: 5px solid #4caf50;
+  display: none;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+a.btn {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
+
+.call { background: #4caf50; }
+.whatsapp { background: #25d366; }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>🚕 Gujarat Taxi Finder</h1>
+
+  <div class="vehicle-grid">
+
+    <div class="vehicle-card">
+        <img src="Image_tavera.avif" alt="Chevrolet Tavera">
+        <div class="info">
+          <h3>Chevrolet Tavera</h3>
+          <p>Tour | Comfortable 7–9 Seater</p>
+          <button onclick="selectVehicle('Chevrolet Tavera')">
+            Select Vehicle
+          </button>
+        </div>
+      </div>
+      
+
+    <div class="vehicle-card">
+      <img src="Image_Eeco.avif" alt="Maruti Eeco">
+      <div class="info">
+        <h3>Maruti Eeco</h3>
+        <p>Budget | 5–7 Seater</p>
+        <button onclick="selectVehicle('Maruti Eeco')">Select Vehicle</button>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <img src="Image_Ertiga.avif" alt="Maruti Ertiga">
+      <div class="info">
+        <h3>Maruti Ertiga</h3>
+        <p>Comfort | Family Travel</p>
+        <button onclick="selectVehicle('Maruti Ertiga')">Select Vehicle</button>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <img src="Image_Toofan.webp" alt="Force Toofan">
+      <div class="info">
+        <h3>Force Toofan</h3>
+        <p>Large Group | Tourist</p>
+        <button onclick="selectVehicle('Force Toofan')">Select Vehicle</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="selected" id="selectedBox">
+    <strong>Selected Vehicle:</strong> <span id="vehicleName"></span>
+
+    <div class="buttons">
+      <a href="tel:7623023109" class="btn call">📞 Call</a>
+      <a href="https://wa.me/917623023109" class="btn whatsapp">💬 WhatsApp</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function selectVehicle(name) {
+  document.getElementById("vehicleName").innerText = name;
+  document.getElementById("selectedBox").style.display = "block";
+}
+</script>
+
+</body>
+</html>
